@@ -1,11 +1,11 @@
-const randomNumber = (parseInt(Math.random()*100 + 1));
+const randomNumber = parseInt(Math.random() * 100 + 1);
 
-const submit  = document.querySelector('#Subt')
+const submit  = document.querySelector('#subt')
 const userInput  = document.querySelector('#guessField')
 const guessSlot  = document.querySelector('.guesses')
 const remaining  = document.querySelector('.lastResult')
 
-const lowOrHi  = document.querySelector('.loeOrHi')
+const lowOrHi  = document.querySelector('.lowOrHi')
 const startOver = document.querySelector('.resultParas')
 
 const p = document.createElement('p')
@@ -17,16 +17,16 @@ let numGuess = 1
 let playGame = true
 
 if(playGame){
-    submit.addEventListener('click', function(){
+    submit.addEventListener('click', function(e){
         e.preventDefault()
-        const guess = parseint(userInput.value)
+        const guess = parseInt(userInput.value)
         console.log(guess)
         validateGuess(guess)
     })
 }
 
 function validateGuess(guess){
-    if(ifNaN(guess)){
+    if(isNaN(guess)){
         alert('Invalid input. Please enter a number between 1 and 100.');
     } else if(guess < 1 || guess > 100){
         alert('Invalid input. Please enter a number between 1 and 100.');
@@ -34,7 +34,7 @@ function validateGuess(guess){
         prevGuess.push(guess)
         if(numGuess === 11){
             displayGuess(guess)
-            displayMessage('You have run out of guesses. The correct number was'+ randomNumber + '. Click "New Game" to start a new game.')
+            displayMessage('Game OVER! Random number was: '+ randomNumber + '. Click "New Game" to start a new game.')
             endGame()
         } else{
             displayGuess(guess)
@@ -57,20 +57,26 @@ function checkGuess(guess){
 }
 
 //clean up previous guesses
-function displayGuess(message){
+function displayGuess(guess){
     userInput.value = ''
-    guessSlot.innerHTML += `${guess}`
+    guessSlot.innerHTML += `${guess}  ` 
     numGuess++;
     remaining.innerHTML = `${11 - numGuess}`
 }
 
 function displayMessage(message){
-    p.textContent = message
-    startOver.appendChild(p)
+    lowOrHi.innerHTML = `<h2>${message}</h2>`;
 }
 
 function endGame(){
-    
+    userInput.value = ''
+    userInput.setAttribute('disabled', '')
+    p.classList.add('button')
+    p.innerHTML =  `<h2 id="NewGame">Start new Game</h2>`;
+    startOver.appendChild(p)
+    playGame = false
+
+    newGame();
 }
 
 function newGame(){
