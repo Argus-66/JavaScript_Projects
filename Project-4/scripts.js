@@ -36,26 +36,28 @@ function validateGuess(guess){
             displayGuess(guess)
             displayMessage('You have run out of guesses. The correct number was'+ randomNumber + '. Click "New Game" to start a new game.')
             endGame()
+        } else{
+            displayGuess(guess)
+            checkGuess(guess)
         }
     }
 }
 
 function checkGuess(guess){
-    if(guess < randomNumber){
-        lowOrHi.textContent = 'Too low!'
-    } 
+    if(guess === randomNumber){ 
+        lowOrHi.textContent = 'Congratulations! You guessed correctly!'
+        endGame()
+    }
     else if(guess > randomNumber){
         lowOrHi.textContent = 'Too high!'
     } 
-    else {
-        lowOrHi.textContent = 'Congratulations! You guessed correctly!'
-        playGame = false
-    }
+    else if (guess < randomNumber){
+        lowOrHi.textContent = 'Too low!'
+    } 
 }
 
 function displayGuess(message){
-    p.textContent = message
-    remaining.appendChild(p)
+    userInput.value = ''
 }
 
 function displayMessage(message){
