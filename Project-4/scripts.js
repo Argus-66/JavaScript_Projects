@@ -30,6 +30,8 @@ function validateGuess(guess){
         alert('Invalid input. Please enter a number between 1 and 100.');
     } else if(guess < 1 || guess > 100){
         alert('Invalid input. Please enter a number between 1 and 100.');
+    } else{
+        prevGuess.push(guess)
     }
 }
 
