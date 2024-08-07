@@ -35,6 +35,7 @@ function validateGuess(guess){
         if(numGuess === 11){
             displayGuess(guess)
             displayMessage('You have run out of guesses. The correct number was'+ randomNumber + '. Click "New Game" to start a new game.')
+            endGame()
         }
     }
 }
