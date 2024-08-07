@@ -32,6 +32,10 @@ function validateGuess(guess){
         alert('Invalid input. Please enter a number between 1 and 100.');
     } else{
         prevGuess.push(guess)
+        if(numGuess === 11){
+            displayGuess(guess)
+            displayMessage('You have run out of guesses. The correct number was'+ randomNumber + '. Click "New Game" to start a new game.')
+        }
     }
 }
 
