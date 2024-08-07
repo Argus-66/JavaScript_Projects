@@ -16,6 +16,14 @@ let numGuess = 1
 
 let playGame = true
 
+if(playGame){
+    submit.addEventListener('click', function(){
+        e.preventDefault()
+        const guess = parseint(userInput.value)
+        validateGuess(guess)
+    })
+}
+
 function validateGuess(guess){
 
 }
@@ -33,7 +41,21 @@ function checkGuess(guess){
     }
 }
 
-function displayMessage(message){
-    p.textContent = `Guess ${numGuess}: ${guess}`
-    guessSlot.appendChild(p)
+function displayGuess(message){
+    p.textContent = message
+    remaining.appendChild(p)
 }
+
+function displayMessage(message){
+    p.textContent = message
+    startOver.appendChild(p)
+}
+
+function endGame(){
+    
+}
+
+function newGame(){
+
+}
+
