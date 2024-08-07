@@ -32,3 +32,8 @@ function checkGuess(guess){
         playGame = false
     }
 }
+
+function displayMessage(message){
+    p.textContent = `Guess ${numGuess}: ${guess}`
+    guessSlot.appendChild(p)
+}
