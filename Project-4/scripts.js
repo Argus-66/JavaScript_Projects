@@ -20,12 +20,17 @@ if(playGame){
     submit.addEventListener('click', function(){
         e.preventDefault()
         const guess = parseint(userInput.value)
+        console.log(guess)
         validateGuess(guess)
     })
 }
 
 function validateGuess(guess){
-
+    if(ifNaN(guess)){
+        alert('Invalid input. Please enter a number between 1 and 100.');
+    } else if(guess < 1 || guess > 100){
+        alert('Invalid input. Please enter a number between 1 and 100.');
+    }
 }
 
 function checkGuess(guess){
