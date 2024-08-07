@@ -16,3 +16,17 @@ let numGuess = 1
 
 let playGame = true
 
+function validateGuess(guess){
+
+}
+
+function checkGuess(guess){
+    if(guess < randomNumber){
+        lowOrHi.textContent = 'Too low!'
+    } else if(guess > randomNumber){
+        lowOrHi.textContent = 'Too high!'
+    } else {
+        lowOrHi.textContent = 'Congratulations! You guessed correctly!'
+        playGame = false
+    }
+}
