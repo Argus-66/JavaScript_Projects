@@ -8,3 +8,6 @@ const remaining  = document.querySelector('.lastResult')
 const lowOrHi  = document.querySelector('.loeOrHi')
 const startOver = document.querySelector('.resultParas')
 
+const p = document.createElement('p')
+
+
